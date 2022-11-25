@@ -6,32 +6,20 @@ on:
       - main
 
 jobs:
-  first_step:
+  check_repository:
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
-        run: echo "Hola, estos son mis primeros pasos en gh-actions"
-
-  install_dependencies:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Install Dependencies
-          run: npm install
-
-  run_linter:
-    runs-on: ubuntu-latest
-    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Install Dependencies
+        run: npm install
       - name: Check errors
-        run: npm run linter
-  
-  format_document:
-    runs-on: ubuntu-latest
-    steps:
+        run: npm run linter  
       - name: Format document with prettier
         run: npm run format
-  
-  say_good_bye:
-    runs-on: ubuntu-latest
-    steps:
-      - name: say good bye
-        run: echo "see u later"
+      - name: Exit command
+        run: echo "all went good"
