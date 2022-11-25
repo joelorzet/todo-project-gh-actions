@@ -1,0 +1,14 @@
+name: Github Actions workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first_step:
+    runs-on: ubuntu-latest
+    steps:
+     -  name: Say Hello
+        run: echo "Hola, estos son mis primeros pasos en gh-actions"
+        

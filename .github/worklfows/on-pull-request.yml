@@ -1,0 +1,13 @@
+name: workflow on pull request
+
+on:
+  github.event.issue.pull_request:
+    branches:
+      - main
+
+jobs:
+  first_step:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say hi
+        run: echo "esto se ejecuto despues de realizar una pr"
