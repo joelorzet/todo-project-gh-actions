@@ -9,6 +9,17 @@ jobs:
   first_step:
     runs-on: ubuntu-latest
     steps:
-     -  name: Say Hello
+      - name: Say Hello
         run: echo "Hola, estos son mis primeros pasos en gh-actions"
-        
+
+  run_linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check errors
+        run: npm run linter
+  
+  format_document:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format document with prettier
+        run: npm run format
