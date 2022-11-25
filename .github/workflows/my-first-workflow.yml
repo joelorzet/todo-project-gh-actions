@@ -12,6 +12,12 @@ jobs:
       - name: Say Hello
         run: echo "Hola, estos son mis primeros pasos en gh-actions"
 
+  install_dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        run: npm install
+
   run_linter:
     runs-on: ubuntu-latest
     steps:
