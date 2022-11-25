@@ -23,3 +23,9 @@ jobs:
     steps:
       - name: Format document with prettier
         run: npm run format
+  
+  say_good_bye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say good bye
+        run: echo "see u later"
