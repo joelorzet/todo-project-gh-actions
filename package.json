@@ -8,13 +8,16 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"linter": "eslint ./**/*.{js,jsx}",
-		"format": "prettier --write .",
+		"format": "prettier --write ./**/*.{js,jsx,json}",
+		"check-format": "prettier --check ./**/*.{js,jsx,json}",
 		"prepare": "husky install"
 	},
-	"lint-staged": {
-		"src/**/*.{js,jsx}": "eslint",
-		"*.{js,jsx,html.css}": "prettier --write"
-	},
+	"lint-staged":{
+		"**/*.{js,jsx,ts,tsx}":[
+		  "npx prettier --write",
+		  "npx eslint --fix"
+		]
+	  },
 	"dependencies": {
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
