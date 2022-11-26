@@ -20,6 +20,6 @@ jobs:
       - name: Check errors
         run: npm run linter  
       - name: Format document with prettier
-        run: npm run format
+        run: npm run check-format
       - name: Exit command
         run: echo "all went good"
