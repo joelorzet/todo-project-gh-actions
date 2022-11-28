@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
 	const [count, setCount] = useState(0);
+	console.log('testing lint-staged');
 
 	return (
 		<div className='App'>
