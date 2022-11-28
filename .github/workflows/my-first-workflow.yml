@@ -23,3 +23,5 @@ jobs:
         run: npm run check-format
       - name: Exit command
         run: echo "all went good"
+      - name: Running tests
+        run: npm run test

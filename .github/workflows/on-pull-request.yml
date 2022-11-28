@@ -24,3 +24,5 @@ jobs:
         run: npm run check-format
       - name: salutes
         run: echo "this workflow ends"
+      - name: Running tests
+        run: npm run test
