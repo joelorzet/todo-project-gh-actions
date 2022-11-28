@@ -1,9 +1,8 @@
 name: workflow on pull request
 
 on:
-    issue_comment:
-      branches:
-      - main
+  pull_request:
+    branches: [main]
 
 jobs:
   first_step:
@@ -11,3 +10,17 @@ jobs:
     steps:
       - name: say hi
         run: echo "esto se ejecuto despues de realizar una pr"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install Dependencies
+        run: npm install
+      - name: Running linter
+        run: npm run linter
+      - name: Running document format checking
+        run: npm run check-format
+      - name: salutes
+        run: echo "this workflow ends"
