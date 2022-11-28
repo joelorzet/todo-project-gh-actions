@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: say hi
         run: echo "esto se ejecuto despues de realizar una pr"
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v2
         with:
           node-version: "18"
       - name: Install Dependencies
@@ -22,3 +22,5 @@ jobs:
         run: npm run linter
       - name: Running document format checking
         run: npm run check-format
+      - name: salutes
+        run: echo "this workflow ends"
