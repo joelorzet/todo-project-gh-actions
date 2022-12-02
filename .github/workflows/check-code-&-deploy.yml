@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   check_repository:
     runs-on: ubuntu-latest
@@ -17,6 +22,8 @@ jobs:
           node-version: "18"
       - name: Install Dependencies
         run: npm install
+      - name: Build project
+        run: npm run build
       - name: Check errors
         run: npm run linter
       - name: Checking appropriate document formatting
@@ -25,11 +32,14 @@ jobs:
         run: echo "all went good"
       - name: Running tests
         run: npm run test
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.build-publish.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: build-publish
+        uses: bitovi/github-actions-react-to-ghp@v1.2.0
         with:
-          target_branch: gh-pages
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: dist
