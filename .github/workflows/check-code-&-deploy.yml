@@ -39,6 +39,24 @@ jobs:
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install Dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Check errors
+        run: npm run linter
+      - name: Checking appropriate document formatting
+        run: npm run check-format
+      - name: Exit command
+        run: echo "all went good"
+      - name: Running tests
+        run: npm run test
       - id: build-publish
         uses: bitovi/github-actions-react-to-ghp@v1.2.0
         with:
