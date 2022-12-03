@@ -6,7 +6,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			{count}
+			<h4>The actual count is: {count}</h4>
 			<button type='button' onClick={() => setCount((prev) => prev + 1)}>
 				Click
 			</button>
