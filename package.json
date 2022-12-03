@@ -1,6 +1,6 @@
 {
 	"name": "todo-project-gh-actions",
-	"homepage":"/dist",
+	"homepage": "/dist",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
