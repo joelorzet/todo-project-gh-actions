@@ -1,6 +1,6 @@
 {
 	"name": "todo-project-gh-actions",
-	"homepage": "/dist",
+	"homepage": "https://joelorzet.github.io/todo-project-gh-actions/",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
